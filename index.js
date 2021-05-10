@@ -70,6 +70,6 @@ https.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendar
 })
 });
 
-app.listen(3000, ()=>{
+app.listen(process.env.PORT || 3000, ()=>{
 	console.log("Server up on Port 3000")
 });
