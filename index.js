@@ -49,29 +49,29 @@ https.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendar
 
   // The whole response has been received. Print out the result.
   resp.on('end', () => {
-    f = JSON.parse(data);
-    for(var i of f.centers)
-    {
-    	//console.log(i);
-    	for(var j of i.sessions)
-    	{
-    		let obj={};
-    		if(j.min_age_limit==age && j.available_capacity>0)
-    		{
-    			obj={
-    				NAME: i.name,
-    				ADDRESS: i.address,
-    				BLOCK: i.block_name,
-    				DATE: j.date,
-    				AVAILABLE: j.available_capacity,
-    				VACCINE: j.vaccine,
-    				SLOTS: j.slots
-    			}
-    		}
-    		else continue;
-    		results.push(obj)
-    	}
-    }
+    f = data;
+    //for(var i of f.centers)
+    //{
+    //	//console.log(i);
+    //	for(var j of i.sessions)
+    //	{
+    //		let obj={};
+    //		if(j.min_age_limit==age && j.available_capacity>0)
+    //		{
+    //			obj={
+    //				NAME: i.name,
+    //				ADDRESS: i.address,
+    //				BLOCK: i.block_name,
+    //				DATE: j.date,
+    //				AVAILABLE: j.available_capacity,
+    //				VACCINE: j.vaccine,
+    //				SLOTS: j.slots
+    //			}
+    //		}
+    //		else continue;
+    //		results.push(obj)
+    //	}
+    //}
   	res.render("home",{results:results});
   });
   
