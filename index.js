@@ -6,7 +6,9 @@ const cors = require('cors');
 
 app.use(cors());
 
+app.set("view engine", "ejs");
 
+app.use(express.static(__dirname+"/views"));
 //app.use(function (req, res, next) {
 //  res.header("Access-Control-Allow-Origin", "*");
 //  res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
@@ -70,7 +72,7 @@ https.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendar
     		results.push(obj)
     	}
     }
-  	return res.json(results);
+  	res.render("home",{results:results});
   });
   
 

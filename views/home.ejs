@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Results</title>
+  </head>
+
+  <body>
+    <ul>
+	<%for (var result in results)
+	{%>
+  		<li>
+  			<br>
+  			<strong>Name:</strong> <%=results[result].NAME%>
+  			<br>
+  			<strong>Address:</strong> <%=results[result].ADDRESS%>
+  			<br>
+  			<strong>Block:</strong> <%=results[result].BLOCK%>
+  			<br>
+  			<strong>Date:</strong> <%=results[result].DATE%>
+  			<br>
+  			<strong>Available:</strong> <%=results[result].AVAILABLE%>
+  			<br>
+  			<strong>Vaccine:</strong> <%=results[result].VACCINE%>
+  			<br>
+  			<strong>Slots:</strong> <%=results[result].SLOTS%>
+  		</li>
+  		<br><br>    
+  	<%}%>
+	</ul>
+
+  </body>
+</html>
