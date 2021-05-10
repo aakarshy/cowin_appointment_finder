@@ -5,6 +5,8 @@ const axios = require('axios');
 const cors = require('cors');
 
 app.use(cors());
+
+
 //app.use(function (req, res, next) {
 //  res.header("Access-Control-Allow-Origin", "*");
 //  res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
@@ -28,8 +30,15 @@ const https = require('https');
 app.get("/",async function(req,res){
 	//const appointments = await axios.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=312&date=07-05-2021');
 	//console.log(appointments);
-https.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id='+req.query.id+'&date='+req.query.date, (resp) => {
- let data=' ',f,result=[];
+  var id = '312', date='09-05-2021', age=45;
+  if(req.query.id)
+    id = req.query.id;
+  if(req.query.date)
+    date=req.query.date;
+  if(req.query.age)
+    age=req.query.age;
+https.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id='+id+'&date='+date, (resp) => {
+ let data=' ',f,results=[];
 
   // A chunk of data has been received.
   resp.on('data', (chunk) => {
@@ -45,7 +54,7 @@ https.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendar
     	for(var j of i.sessions)
     	{
     		let obj={};
-    		if(j.min_age_limit==req.query.age && j.available_capacity>0)
+    		if(j.min_age_limit==age && j.available_capacity>0)
     		{
     			obj={
     				NAME: i.name,
@@ -58,10 +67,10 @@ https.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendar
     			}
     		}
     		else continue;
-    		result.push(obj)
+    		results.push(obj)
     	}
     }
-  	return res.json(result);
+  	return res.json(results);
   });
   
 
