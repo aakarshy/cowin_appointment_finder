@@ -5,9 +5,65 @@
   </head>
 
   <body>
+  	<br><br>
+  	The aim of this page is to provide fast access to slots availability. Working on the notifications bit. Updating soon! 
+  	Save the url according to your need and just refresh it to get the latest status on vaccination drive in your area. 
+  	<br>An empty result page means no slots are available. 
+  	<br>
+  	Once you get the district id from below just copy this url:-<br> 
+	http://65.1.28.217:3000?id=enter_your_dist_id&date=15-05-2021&age=18
+	<br>
+	<ul>
+	<li>Replace <strong>enter_your_dist_id</strong> from district code that you can choose from below. 
+  	<li>You can change the <strong>date</strong> and get information of available slots for that date and the next 7 days  (by default -> Today's date)
+  	<li> <strong>age</strong> parameter can be <strong>18</strong> or <strong>45</strong> depending on the person that is to be vaccinated (by default -> 45)
+  	Find district codes for:- 
+  	<br> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/1">A&N islands</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/2">Andhra Pradesh</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/3">Arunachal Pradesh</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/4">Assam</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/5">Bihar</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/6">Chandigarh</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/7">Chhatisgarh</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/8">D&N Haveli</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/37">Daman & Diu</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/9">Delhi0</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/10">Goa0</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/11">Gujarat</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/12">Haryana</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/13">Himachal Pradesh</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/14">J&K</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/15">Jharkhand</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/16">Karnataka</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/17">Kerala</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/18">Ladakh</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/19">Lakshwadeep</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/20">Madhya Pradesh</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/21">Maharashtra</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/22">Manipur</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/23">Meghalaya</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/24">Mizoram</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/25">Nagaland</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/26">Odisha</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/27">Puducherry</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/28">Punjab</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/29">Rajasthan</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/30">Sikkim</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/31">Tamil Nadu</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/32">Telangana</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/33">Tripura</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/34">Uttar Pradesh</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/35">Uttarakhand</a> 
+	<a href="https://cdn-api.co-vin.in/api/v2/admin/location/districts/36">West Bengal</a> 
+
+	<br><br>
+	<%if(results.length>0){%>
+	<strong><h2><%=results[0].DISTRICT%>, <%=results[0].STATE%></h2></strong>
+	<%}%>
+	<br>
     <ul>
-    	<%=results%>
-	<!--<%for (var result in results)
+	<%for (var result in results)
 	{%>
   		<li>
   			<br>
@@ -26,7 +82,7 @@
   			<strong>Slots:</strong> <%=results[result].SLOTS%>
   		</li>
   		<br><br>    
-  	<%}%>-->
+  	<%}%>
 	</ul>
 
   </body>
