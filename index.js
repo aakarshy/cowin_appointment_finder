@@ -32,7 +32,7 @@ const https = require('https');
 app.get("/",async function(req,res){
 	//const appointments = await axios.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=312&date=07-05-2021');
 	//console.log(appointments);
-  var id = 312, age=18; //date=moment(date).format('DD-MM-YY');
+  var id = '312', age=45; //date=moment(date).format('DD-MM-YY');
   if(req.query.id)
     id = req.query.id;
  // if(req.query.date)
@@ -45,7 +45,6 @@ var results=[];
 for(var k=0;k<28;k=k+7){
   var date=moment().add(k,'days').format('DD-MM-YYYY')
   console.log(date);
-  console.log(id);
   await https.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id='+id+'&date='+date, (resp) => {
     var data=' ',f;
 
