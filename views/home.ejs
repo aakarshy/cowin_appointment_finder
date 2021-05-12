@@ -61,6 +61,9 @@
 	<%if(results.length>0){%>
 	<strong><h2><%=results[0].DISTRICT%>, <%=results[0].STATE%></h2></strong>
 	<%}%>
+	<%if(results.length==0){%>
+	<strong><h2>NO RESULTS TO SHOW!</h2></strong>
+	<%}%>
 	<br>
     <ul>
 	<%for (var result in results)
